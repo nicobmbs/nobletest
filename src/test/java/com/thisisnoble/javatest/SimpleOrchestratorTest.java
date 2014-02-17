@@ -74,8 +74,12 @@ public class SimpleOrchestratorTest {
         }
     }
 
-    private Orchestrator createOrchestrator() {
+   private Orchestrator createOrchestrator() {
         //TODO solve the test
-        throw new UnsupportedOperationException();
+        Orchestrator myOrchestrator = new Orchestrator();
+        myOrchestrator.setup(new TestPublisher());
+        if ( myOrchestrator == null)
+            throw new UnsupportedOperationException();
+        return myOrchestrator;
     }
 }

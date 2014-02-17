@@ -11,6 +11,7 @@ public class CompositeEvent implements Event {
     private final String id;
     private final Event parent;
     private final List<Event> children = new ArrayList<>();
+    private int trigger = 0;
 
     public CompositeEvent(Event parent) {
         this.id = IdGenerator.generate();
@@ -24,6 +25,9 @@ public class CompositeEvent implements Event {
     public Event getParent() {
         return parent;
     }
+    public String getParentId() {
+        return null;
+    }
 
     public CompositeEvent addChild(Event child) {
         children.add(child);
@@ -36,5 +40,13 @@ public class CompositeEvent implements Event {
 
     public int size() {
         return children.size();
+    }
+    
+    public void incrTrigger () {
+        this.trigger++;
+    }
+
+    public int getTrigger() {
+        return this.trigger;
     }
 }
